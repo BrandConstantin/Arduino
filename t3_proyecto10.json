@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "author": "TheFuckingTeacher",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-mini", "id": "bb1", "top": 142.6, "left": -367.2, "attrs": {} },
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -0.67, "left": 25.33, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -95.57,
+      "left": 156.07,
+      "attrs": { "temperature": "12.4" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -56.1,
+      "left": -167.3,
+      "attrs": { "distance": "156" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 313.6,
+      "left": -42.4,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "dht1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "ultrasonic1:ECHO", "esp:D14", "green", [ "v0" ] ],
+    [ "ultrasonic1:TRIG", "esp:D13", "green", [ "v0" ] ],
+    [ "dht1:SDA", "esp:D2", "green", [ "v0" ] ],
+    [ "bb1:17t.c", "esp:VIN", "cyan", [ "v0" ] ],
+    [ "ultrasonic1:VCC", "bb1:17t.a", "red", [ "v84.35", "h-107.75" ] ],
+    [ "lcd1:VCC", "bb1:17t.e", "red", [ "h0" ] ],
+    [ "lcd1:GND", "bb1:13t.e", "black", [ "h0" ] ],
+    [ "bb1:13t.c", "esp:GND.2", "magenta", [ "v0" ] ],
+    [ "ultrasonic1:GND", "bb1:13t.a", "black", [ "h-177.84", "v113.79" ] ],
+    [ "lcd1:SDA", "esp:D21", "orange", [ "h-56.63", "v144.78", "h487.95", "v-447.15" ] ],
+    [ "lcd1:SCL", "esp:D22", "orange", [ "h-36.09", "v116.69", "h418.49", "v-457.46" ] ]
+  ],
+  "dependencies": {}
+}
