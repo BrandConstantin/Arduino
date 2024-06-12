@@ -58,7 +58,7 @@ void loop() {
     digitalWrite(trigPin, HIGH); // importante
 
     if(digitalRead(trigPin) == HIGH){
-      
+     
       digitalWrite(trigPin, LOW); // Cerrado para medir el tiempo de impacto
       //delayMicroseconds(2);
 
@@ -88,7 +88,7 @@ void loop() {
       /*-------------------------------------------*/
 
 
-/*-------------------------------- Función para comprobar que hay valores de movimiento para mostrar. ----------------------------------------*/
+      /*-------------------------------- Función para comprobar que hay valores de movimiento para mostrar. ----------------------------------------*/
 
       /*---------------------------------- LCD 16x2 (I2C) --------------------------------*/
         lcd.init(); // Seleccione el valor desde el principio como funtion()
@@ -123,7 +123,6 @@ void loop() {
         temperature_demo = temperature;
         delay(2000);
       }
-      
       if(humidity != humidity_demo){
         lcd.clear();
         lcd.setCursor(4,0);   // Establecer letras de posición en la pantalla LCD
@@ -136,13 +135,13 @@ void loop() {
         delay(2000);
       /*-------------------------------------------------------------------------------*/
       }
-    
+   
     }
-    
+   
 
   /*---------------------------------------*/
 
 
-  
+ 
   delay(1000);
 }
