@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "author": "TheFuckingTeacher",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": 102.6, "left": 2.8, "attrs": {} },
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 46.86,
+      "left": 419.3,
+      "rotate": 270,
+      "attrs": {}
+    },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": -102.17, "left": 16, "attrs": {} },
+    {
+      "type": "wokwi-analog-joystick",
+      "id": "joystick1",
+      "top": 143.4,
+      "left": -157.8,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot1",
+      "top": 184.5,
+      "left": 125.8,
+      "rotate": 180,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:5V", "bb1:tp.25", "red", [ "v28.65", "h-211.2", "v-115.5" ] ],
+    [ "esp:GND.1", "bb1:tn.25", "black", [ "v19.05", "h-172.8", "v-96" ] ],
+    [ "bb1:14t.a", "bb1:tp.11", "red", [ "v0" ] ],
+    [ "bb1:tn.13", "bb1:16t.a", "black", [ "v0" ] ],
+    [ "lcd1:V0", "bb1:15t.a", "orange", [ "v67.2", "h95.7" ] ],
+    [ "lcd1:RS", "esp:23", "green", [ "v57.6", "h9.9" ] ],
+    [ "lcd1:RW", "bb1:tn.5", "black", [ "v0" ] ],
+    [ "lcd1:E", "esp:22", "gold", [ "v48", "h316.8" ] ],
+    [ "lcd1:D4", "esp:5", "blue", [ "v38.4", "h336" ] ],
+    [ "lcd1:D5", "esp:18", "violet", [ "v28.8", "h9.7" ] ],
+    [ "lcd1:D6", "esp:19", "purple", [ "v19.2", "h9.8" ] ],
+    [ "lcd1:D7", "esp:21", "magenta", [ "v9.6", "h0.3" ] ],
+    [ "lcd1:A", "bb1:tp.14", "red", [ "v0" ] ],
+    [ "lcd1:K", "bb1:tn.15", "black", [ "v0" ] ],
+    [ "lcd1:VDD", "bb1:tp.3", "red", [ "v0" ] ],
+    [ "lcd1:VSS", "bb1:tn.2", "black", [ "v0" ] ],
+    [ "joystick1:VCC", "bb1:tp.1", "red", [ "v28.8", "h115.2", "v9.6" ] ],
+    [ "joystick1:VERT", "esp:34", "purple", [ "v67.2", "h528" ] ],
+    [ "joystick1:HORZ", "esp:35", "cyan", [ "v57.6", "h9.6" ] ],
+    [ "joystick1:GND", "bb1:tn.1", "black", [ "v19.2", "h67.2", "v-153.6" ] ],
+    [ "pot1:GND", "bb1:16t.e", "", [ "$bb" ] ],
+    [ "pot1:SIG", "bb1:15t.e", "", [ "$bb" ] ],
+    [ "pot1:VCC", "bb1:14t.e", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
